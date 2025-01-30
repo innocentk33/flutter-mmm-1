@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mmm/app.dart';
+import 'package:go_router/go_router.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key, required this.title});
@@ -9,78 +11,28 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text("Liste des Bars/Restaurants"),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Image.asset(
-              'assets/notre-salle.jpg',
-              height: 300,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 16.0, left: 16.0, top: 16.0),
-              child: Column(
-                children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Désordre',
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                          ),
-                          Text('18 rue de la République'),
-                          Text('35000 Rennes'),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                              padding: EdgeInsets.only(right: 16.0),
-                              child: Icon(Icons.star_border_outlined, color: Colors.redAccent)),
-                          Text('156'),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          height: 70,
-                          child: Column(
-                            children: [Icon(Icons.phone, color: Colors.blue), Text('Appeler')],
-                          ),
-                        ),
-                        Container(
-                          height: 70,
-                          child: Column(
-                            children: [Icon(Icons.pin_drop, color: Colors.blue), Text('Appeler')],
-                          ),
-                        ),
-                        Container(
-                          height: 70,
-                          child: Column(
-                            children: [Icon(Icons.share, color: Colors.blue), Text('Appeler')],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Text(
-                      "Dans le quartier de la plaine de Baud, direction Désordre (un clin d\'œil au titre « Disorder » de Joy Division au passage) pour profiter du bar ou du restaurant. Ce lieu de vie offre diverses facettes selon l'heure ou le jour où l\'on vient.Stand-up, karaoké, soirée drag, di sets, concerts : les événements ne manquent pas. Au déjeuner, on trinque et on déguste une cuisine italo-bretonne : burrata des Pouilles et pesto de feuilles de moutarde, polpette de veau entre autres."),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        children: [
+          ListTile(
+            title: const Text("Désordre"),
+            subtitle: const Text("18 Rue Georges Charpak \n35000 Rennes"),
+            isThreeLine: true,
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.pushNamed('details'),
+          ),
+          ListTile(
+            title: const Text("Désordre 2"),
+            subtitle: const Text("19 Rue Georges Charpak \n35000 Rennes"),
+            isThreeLine: true,
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.pushNamed('details'),
+          )
+        ],
+      )
     );
   }
 }
