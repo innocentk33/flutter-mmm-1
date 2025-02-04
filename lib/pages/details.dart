@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Details extends StatelessWidget {
   const Details({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +65,7 @@ class Details extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Text(
-                      "Dans le quartier de la plaine de Baud, direction Désordre (un clin d\'œil au titre « Disorder » de Joy Division au passage) pour profiter du bar ou du restaurant. Ce lieu de vie offre diverses facettes selon l'heure ou le jour où l\'on vient.Stand-up, karaoké, soirée drag, di sets, concerts : les événements ne manquent pas. Au déjeuner, on trinque et on déguste une cuisine italo-bretonne : burrata des Pouilles et pesto de feuilles de moutarde, polpette de veau entre autres."),
+                  Text(AppLocalizations.of(context)!.restaurantDescription),
                 ],
               ),
             )
@@ -85,7 +84,6 @@ class FavWidget extends StatefulWidget {
 }
 
 class _FavWidgetState extends State<FavWidget> {
-
   bool _liked = false;
   int _nbLikes = 156;
 
@@ -95,13 +93,15 @@ class _FavWidgetState extends State<FavWidget> {
       children: [
         GestureDetector(
           onTap: () => setState(() {
-            _nbLikes = _liked ? (_nbLikes-1) : (_nbLikes+1);
+            _nbLikes = _liked ? (_nbLikes - 1) : (_nbLikes + 1);
             _liked = !_liked;
           }),
           child: Padding(
               padding: EdgeInsets.only(right: 16.0),
-              child: Icon(_liked ? Icons.star : Icons.star_border_outlined, color: Colors.redAccent, )
-          ),
+              child: Icon(
+                _liked ? Icons.star : Icons.star_border_outlined,
+                color: Colors.redAccent,
+              )),
         ),
         Text("$_nbLikes"),
       ],
