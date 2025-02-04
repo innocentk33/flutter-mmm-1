@@ -3,5 +3,8 @@
   "restaurantList": "Restaurant List",
   "restaurantDetails": "Restaurant Details",
   "restaurantDescription": "Restaurant Description",
-  "appTitle": "TP2 - Flutter"
+  "appTitle": "TP2 - Flutter",
+  "call": "Call",
+  "location": "Direction",
+  "share": "Share"
 }

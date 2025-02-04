@@ -29,6 +29,9 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
 final router = GoRouter(initialLocation: '/login', routes: [
   GoRoute(name: 'home', path: '/', builder: (ctx, state) => const Home(title: 'Desordre Page')),
-  GoRoute(name: 'details', path: '/details', builder: (ctx, state) => const Details()),
+  GoRoute(
+    name: 'details',
+    path: '/details/:name/:address',
+    builder: (ctx, state) => Details(name: state.pathParameters['name'], address: state.pathParameters['address'])),
   GoRoute(name: 'login', path: '/login', builder: (ctx, state) => const Login()),
 ]);
