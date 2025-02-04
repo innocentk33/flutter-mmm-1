@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_mmm/core/extension/context.dart';
 
 class Details extends StatelessWidget {
   const Details({super.key});
@@ -47,25 +48,34 @@ class Details extends StatelessWidget {
                         Container(
                           height: 70,
                           child: Column(
-                            children: [Icon(Icons.phone, color: Colors.blue), Text('Appeler')],
+                            children: [
+                              Icon(Icons.phone, color: Colors.blue),
+                              Text(context.l1On.call)
+                            ],
                           ),
                         ),
                         Container(
                           height: 70,
                           child: Column(
-                            children: [Icon(Icons.pin_drop, color: Colors.blue), Text('Appeler')],
+                            children: [
+                              Icon(Icons.pin_drop, color: Colors.blue),
+                              Text(context.l1On.location)
+                            ],
                           ),
                         ),
                         Container(
                           height: 70,
                           child: Column(
-                            children: [Icon(Icons.share, color: Colors.blue), Text('Appeler')],
+                            children: [
+                              Icon(Icons.share, color: Colors.blue),
+                              Text(context.l1On.share)
+                            ],
                           ),
                         ),
                       ],
                     ),
                   ),
-                  Text(AppLocalizations.of(context)!.restaurantDescription),
+                  Text(context.l1On.restaurantDescription),
                 ],
               ),
             )
