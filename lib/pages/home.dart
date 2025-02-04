@@ -22,14 +22,14 @@ class Home extends StatelessWidget {
               subtitle: const Text("18 Rue Georges Charpak \n35000 Rennes"),
               isThreeLine: true,
               trailing: const Icon(Icons.chevron_right),
-              onTap: () => context.pushNamed('details'),
+              onTap: () => context.pushNamed('details', pathParameters: {"name": "Désordre", "address": "18 Rue Georges Charpak \n35000 Rennes"}),
             ),
             ListTile(
               title: const Text("Désordre 2"),
               subtitle: const Text("19 Rue Georges Charpak \n35000 Rennes"),
               isThreeLine: true,
               trailing: const Icon(Icons.chevron_right),
-              onTap: () => context.pushNamed('details'),
+              onTap: () => context.pushNamed('details', pathParameters: {"name": "Désordre 2", "address": "19 Rue Georges Charpak \n35000 Rennes"}),
             )
           ],
         ));
