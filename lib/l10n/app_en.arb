@@ -1,0 +1,7 @@
+{
+  "helloWorld": "Hello, World!",
+  "restaurantList": "Restaurant List",
+  "restaurantDetails": "Restaurant Details",
+  "restaurantDescription": "Restaurant Description",
+  "appTitle": "TP2 - Flutter"
+}
