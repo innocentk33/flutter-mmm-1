@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mmm/pages/details.dart';
 import 'package:flutter_mmm/pages/home.dart';
+import 'package:flutter_mmm/pages/login.dart';
 import 'package:go_router/go_router.dart';
 
 class MyApp extends StatelessWidget {
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
 final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
 final router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/login',
   routes: [
     GoRoute(
       name: 'home',
@@ -35,6 +36,11 @@ final router = GoRouter(
       name: 'details',
       path: '/details',
       builder: (ctx, state) => const Details()
+    ),
+    GoRoute(
+      name: 'login',
+      path: '/login',
+      builder: (ctx, state) => const Login()
     ),
   ]
 );
