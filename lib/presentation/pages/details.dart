@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_mmm/core/extension/context.dart';
+import 'package:flutter_mmm/presentation/widget/icon_box.dart';
 
 class Details extends StatefulWidget {
   const Details({super.key, required this.address, required this.name});
+
   final String? address;
   final String? name;
+
   @override
   State<Details> createState() => _DetailsState();
 }
@@ -15,7 +17,7 @@ class _DetailsState extends State<Details> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Désordre page"),
+        title: Text(context.l1On.desordrePage),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -37,12 +39,12 @@ class _DetailsState extends State<Details> {
                         children: [
                           Text(
                             widget.name ?? "",
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                           ),
                           Text(widget.address ?? ""),
                         ],
                       ),
-                      FavWidget(),
+                      const FavWidget(),
                     ],
                   ),
                   Padding(
@@ -50,33 +52,9 @@ class _DetailsState extends State<Details> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Container(
-                          height: 70,
-                          child: Column(
-                            children: [
-                              Icon(Icons.phone, color: Colors.blue),
-                              Text(context.l1On.call)
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: 70,
-                          child: Column(
-                            children: [
-                              Icon(Icons.pin_drop, color: Colors.blue),
-                              Text(context.l1On.location)
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: 70,
-                          child: Column(
-                            children: [
-                              Icon(Icons.share, color: Colors.blue),
-                              Text(context.l1On.share)
-                            ],
-                          ),
-                        ),
+                        IconBox(title: context.l1On.call, icon: Icons.phone),
+                        IconBox(title: context.l1On.location, icon: Icons.pin_drop),
+                        IconBox(title: context.l1On.share, icon: Icons.share)
                       ],
                     ),
                   ),
@@ -112,7 +90,7 @@ class _FavWidgetState extends State<FavWidget> {
             _liked = !_liked;
           }),
           child: Padding(
-              padding: EdgeInsets.only(right: 16.0),
+              padding: const EdgeInsets.only(right: 16.0),
               child: Icon(
                 _liked ? Icons.star : Icons.star_border_outlined,
                 color: Colors.redAccent,
